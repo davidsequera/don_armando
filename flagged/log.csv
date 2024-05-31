@@ -1,2 +1,5 @@
 Gender,Age,Debt,Married,Bank Customer,Industry,Ethnicity,Years Employed,Prior Default,Employed,Credit Score,Driver's License,Citizen,Zip Code,Income,output,flag,username,timestamp
 Male,35,12000,Yes,Yes,Financials,Latino,19.8,Yes,Yes,525,Yes,ByBirth,11111,12000,,,,2024-05-30 16:43:39.726505
+Male,41.9,0,Yes,No,CommunicationServices,Black,16.9,No,No,489,No,ByOtherMeans,1123,1111,,,,2024-05-30 19:34:11.493381
+Male,41.9,0,Yes,No,CommunicationServices,Black,16.9,No,No,489,No,ByOtherMeans,1123,1111,,,,2024-05-30 19:34:15.840286
+Female,59.4,0,No,No,Research,Latino,0,No,Yes,300,No,ByOtherMeans,1111,1200,,,,2024-05-30 19:37:50.692571

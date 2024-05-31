@@ -54,27 +54,26 @@ def predict_approval(
     Citizen,
     ZipCode,
     Income]
-    print(x)
-    for c in x:
+    for i in range(len(x)):
+        c = x[i]
         if c =="Yes" or c== "Male":
-            c = 1
+            x[i] = 1
         elif c == "No" or c == "Female":
-            c = 0
-    x = np.array(x)
-    x = pd.DataFrame(x, columns=columns)
+            x[i] = 0
+    x = pd.DataFrame([x], columns=columns)
     y = model.predict(x)
     # Simple approval based on employment status (mock)
-    if Employed == "Yes":
-        return "Approved"+y
+    if y[0]:
+        return "Congratulation your card is Approved"
     else:
-        return "Rejected"+y
+        return "Sorry We can not provide at this time but we will take you into account for next opportunities"
 
 # Gradio interface definition
 interface = gr.Interface(
     fn=predict_approval,
     inputs=[
         gr.Radio(["Male", "Female"], label="Gender"),
-        gr.Slider(minimum=18, maximum=100, label="Age"),
+        gr.Slider(minimum=12, maximum=100, label="Age"),
         gr.Number(label="Debt"),
         gr.Radio(["Yes", "No"], label="Married"),
         gr.Radio(["Yes", "No"], label="Bank Customer"),
@@ -83,10 +82,10 @@ interface = gr.Interface(
  'InformationTechnology', 'Materials', 'Real Estate', 'Research', 'Transport'
  'Utilities'],label="Industry"),
         gr.Radio(['Asian', 'Black', 'Latino', 'Other', 'White'], label="Ethnicity"),
-        gr.Slider(minimum=0, maximum=40, label="Years Employed"),
+        gr.Slider(minimum=0, maximum=30, label="Years Employed"),
         gr.Radio(["Yes", "No"], label="Prior Default"),
         gr.Radio(["Yes", "No"], label="Employed"),
-        gr.Slider(minimum=300, maximum=850, label="Credit Score"),
+        gr.Slider(minimum=0, maximum=100, label="Credit Score"),
         gr.Radio(["Yes", "No"], label="Driver's License"),
         gr.Radio(['ByBirth', 'ByOtherMeans', 'Temporary'], label="Citizen"),
         gr.Number(label="Zip Code"),
